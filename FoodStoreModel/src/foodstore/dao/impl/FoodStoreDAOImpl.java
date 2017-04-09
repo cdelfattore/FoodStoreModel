@@ -106,8 +106,23 @@ public class FoodStoreDAOImpl implements FoodStoreDAO {
 		employeeMap.put(empThree.getEmployeeId(), empThree);
 		
 		//create three items for the three stores
+		Item itemOne = new Item();
+		itemOne.setName("Milk");
+		itemOne.setPrice(2.50);
+		itemOne.setUpc(12345);
+		itemMap.put(itemOne.getUpc(), itemOne);
 		
-		
+		Item itemTwo = new Item();
+		itemTwo.setName("Peanut Butter");
+		itemTwo.setPrice(3.00);
+		itemTwo.setUpc(65432);
+		itemMap.put(itemTwo.getUpc(), itemTwo);
+
+		Item itemThree = new Item();
+		itemThree.setName("Ground Beef");
+		itemThree.setPrice(6.00);
+		itemThree.setUpc(98765);
+		itemMap.put(itemThree.getUpc(), itemThree);
 		
 		
 	}
