@@ -11,14 +11,14 @@ public interface FoodStoreFacade {
 	 */
 	public Employee getEmployee(int employeeId);
 	
-	public Employee createEmployee(Employee newEmployee);
+	public boolean createEmployee(Employee newEmployee);
 	
 	public boolean currentlyEmployed(int employeeId);
 	
 	/*
 	 * Methods for Item
 	 */
-	public Item createItem(Item newItem);
+	public boolean createItem(Item newItem);
 	
 	public Item getItem(int upc);
 	
@@ -27,7 +27,7 @@ public interface FoodStoreFacade {
 	/*
 	 * Methods for Store
 	 */
-	public Store createStore(Store newStore);
+	public boolean createStore(Store newStore);
 	
 	public Store getStore(int storeId);
 	

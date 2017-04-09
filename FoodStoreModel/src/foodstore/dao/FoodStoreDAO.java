@@ -11,7 +11,7 @@ public interface FoodStoreDAO {
 	 */
 	public Employee getEmployeeInfo(int employeeId);
 	
-	public Employee createEmployee(Employee e);
+	public boolean createEmployee(Employee e);
 	
 	public boolean updateEmployeeInfo(Employee e);
 	
@@ -22,7 +22,7 @@ public interface FoodStoreDAO {
 	 */
 	public Item getItemInfo(int upc);
 	
-	public Item createItem(Item i);
+	public boolean createItem(Item i);
 	
 	public boolean updateItem(Item i);
 	
@@ -33,7 +33,7 @@ public interface FoodStoreDAO {
 	 */
 	public Store getStoreInfo(int storeId);
 	
-	public Store createStore(Store s);
+	public boolean createStore(Store s);
 	
 	public boolean updateStore(Store s);
 	
