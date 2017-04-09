@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import foodstore.dao.impl.FoodStoreDAOImpl;
+import foodstore.model.Employee;
+import foodstore.model.Item;
+import foodstore.model.Store;
 import foodstore.services.impl.FoodStoreFacadeImpl;
 import junit.framework.TestCase;
 
@@ -27,42 +30,73 @@ public class FoodStoreFacadeTest extends TestCase {
 
 	@Test
 	public void testCreateEmployee() {
-		fail("Not yet implemented"); // TODO
+		Employee emp = new Employee();
+		emp.setFirstName("John");
+		emp.setLastName("James");
+		emp.setEmployeeId(55);
+		foodStoreFacade.createEmployee(emp);
+		assertTrue(foodStoreFacade.getEmployee(55) != null);
 	}
 
 	@Test
 	public void testCurrentlyEmployed() {
-		fail("Not yet implemented"); // TODO
+		//the init method creates three employees
+		//each with a employee id of either 1, 2 or 3
+		//if I assert that employee one exist than the method
+		//is working properly.
+		assertTrue(foodStoreFacade.getEmployee(1) != null);
 	}
 
 	@Test
 	public void testCreateItem() {
-		fail("Not yet implemented"); // TODO
+		Item itemOne = new Item();
+		itemOne.setName("Cheese");
+		itemOne.setPrice(1.50);
+		itemOne.setUpc(17778);
+		itemOne.setDepartment("Dairy");
+		
+		foodStoreFacade.createItem(itemOne);
+		
+		assertTrue(
+				foodStoreFacade.getItem(17778).getDepartment() == "Dairy" &&
+				foodStoreFacade.getItem(17778).getPrice() == 1.50 &&
+				foodStoreFacade.getItem(17778).getName() == "Cheese"
+				);
 	}
 
 	@Test
 	public void testGetItem() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(foodStoreFacade.getItem(12345).getName() == "Milk");
 	}
 
 	@Test
 	public void testGetItemDeparment() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(foodStoreFacade.getItem(12345).getDepartment() == "Dairy");
 	}
 
 	@Test
 	public void testCreateStore() {
-		fail("Not yet implemented"); // TODO
+		Store sto = new Store();
+		sto.setName("Super Cheap Food");
+		sto.setStoreId(56);
+		sto.setCity("Camden");
+		
+		foodStoreFacade.createStore(sto);
+		
+		assertTrue(foodStoreFacade.getStore(56).getCity() == "Camden");
 	}
 
 	@Test
 	public void testGetStore() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(foodStoreFacade.getStore(1).getName() == "Food Stop");
 	}
 
 	@Test
 	public void testGetStoreName() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(
+				foodStoreFacade.getStore(1) != null &&
+				!foodStoreFacade.getStore(1).getName().isEmpty()
+				);
 	}
 
 }
