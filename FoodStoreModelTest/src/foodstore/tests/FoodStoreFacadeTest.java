@@ -4,11 +4,25 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class FoodStoreFacadeTest {
+import foodstore.dao.impl.FoodStoreDAOImpl;
+import foodstore.services.impl.FoodStoreFacadeImpl;
+import junit.framework.TestCase;
 
+public class FoodStoreFacadeTest extends TestCase {
+	
+	FoodStoreFacadeImpl foodStoreFacade;
+	
+	public void setUp() throws Exception{
+		super.setUp();
+		
+		foodStoreFacade = new FoodStoreFacadeImpl();
+		
+		foodStoreFacade.setFoodStoreDAO(FoodStoreDAOImpl.getFoodStoreDAO());
+	}
+	
 	@Test
 	public void testGetEmployee() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(foodStoreFacade.getEmployee(1) != null);
 	}
 
 	@Test
