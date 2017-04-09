@@ -27,7 +27,7 @@ public class FoodStoreDAOImpl implements FoodStoreDAO {
 	
 	private HashMap<Integer, Item> itemMap = new HashMap<Integer, Item>();
 	
-	public static FoodStoreDAO getFoodStoreDAO(){
+	public static FoodStoreDAO getFoodStoreDAO() throws ParseException{
 		if(foodStoreDAO == null){
 			foodStoreDAO = new FoodStoreDAOImpl();
 		}
@@ -110,18 +110,21 @@ public class FoodStoreDAOImpl implements FoodStoreDAO {
 		itemOne.setName("Milk");
 		itemOne.setPrice(2.50);
 		itemOne.setUpc(12345);
+		itemOne.setDepartment("Dairy");
 		itemMap.put(itemOne.getUpc(), itemOne);
 		
 		Item itemTwo = new Item();
 		itemTwo.setName("Peanut Butter");
 		itemTwo.setPrice(3.00);
 		itemTwo.setUpc(65432);
+		itemTwo.setDepartment("Grocery");
 		itemMap.put(itemTwo.getUpc(), itemTwo);
 
 		Item itemThree = new Item();
 		itemThree.setName("Ground Beef");
 		itemThree.setPrice(6.00);
 		itemThree.setUpc(98765);
+		itemThree.setDepartment("Meat");
 		itemMap.put(itemThree.getUpc(), itemThree);
 		
 		
